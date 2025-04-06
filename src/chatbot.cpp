@@ -47,7 +47,9 @@ ChatBot::~ChatBot()
 // Copy constructor
 ChatBot::ChatBot(const ChatBot& other)
 {
-    _image = other._image;
+    // deep copy of image
+    _image = new wxBitmap();
+    *_image = *other._image;
     _chatLogic = other._chatLogic;
     _rootNode = other._rootNode;
     std::cout << "ChatBot copy constructor" << std::endl;
@@ -56,7 +58,9 @@ ChatBot::ChatBot(const ChatBot& other)
 //Copy assignment
 ChatBot& ChatBot::operator=(const ChatBot& other)
 {
-    _image = other._image;
+    // deep copy of image
+    _image = new wxBitmap();
+    *_image = *other._image;
     _chatLogic = other._chatLogic;
     _rootNode = other._rootNode;
     std::cout << "ChatBot copy assignment" << std::endl;
